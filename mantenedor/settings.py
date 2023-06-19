@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'recogitate-database',
         'USER': 'gpjubvjkke',
-        'PASSWORD': '1Lithium23',
+        'PASSWORD': '1A11G22OKBU0DGS4$',
         'HOST': 'recogitate-server.postgres.database.azure.com',
         'PORT': '5432',
         
