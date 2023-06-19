@@ -87,6 +87,12 @@ WSGI_APPLICATION = 'mantenedor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 import dj_database_url
 import os
@@ -95,7 +101,7 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.config(
-            default='postgres://gpjubvjkke:1Lithium23@recogitate-server.postgres.database.azure.com/postgres?sslmode=require',
+            default='postgres://gpjubvjkke:{1Lithium23}@recogitate-server.postgres.database.azure.com/postgres?sslmode=require',
             conn_max_age=600,
             conn_health_checks=True,
         )
