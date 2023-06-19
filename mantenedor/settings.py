@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['recogitate.azurewebsites.net', 'recogitate.com.br']
 
-CSRF_TRUSTED_ORIGINS = ['https://*.recogitate.azurewebsites.net']
+
 
 
 
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'gestor',
     'crispy_forms',
     'crispy_bootstrap5',
-    'corsheaders', 
+    
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'mantenedor.urls'
