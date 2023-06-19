@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['recogitate.azurewebsites.net', 'recogitate.com.br']
 
-
+CSRF_TRUSTED_ORIGINS = ['https://*.recogitate.azurewebsites.net']
 
 
 
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+   
 ]
 
 ROOT_URLCONF = 'mantenedor.urls'
@@ -87,9 +87,6 @@ WSGI_APPLICATION = 'mantenedor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-import dj_database_url
-import os
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -97,7 +94,8 @@ DATABASES = {
     }
 }
 
-
+import dj_database_url
+import os
 
 DATABASE_URL = os.getenv('DATABASE_URL')
 if DATABASE_URL:
