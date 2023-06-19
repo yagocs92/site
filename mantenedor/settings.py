@@ -92,7 +92,7 @@ DATABASES = {
         'PASSWORD': '1A11G22OKBU0DGS4$',
         'HOST': 'recogitate-server.postgres.database.azure.com',
         'PORT': '5432',
-        
+        'sslmode':'require'
     }
 }
 
