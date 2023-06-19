@@ -18,22 +18,14 @@
     }
   </style>
 
-  
+  {%  load static %}
 
   <!-- Background image -->
-  <div
-  {
-    text-align: center;
-  }
-    id="intro-example"
-    class="p-5 text-center bg-image"
-    {%  load static %}
-    style="background-image: url('{% static 'images/maquinas.jpg'%} '); align="center";
-
+  <div id="intro-example" class="p-5 text-center bg-image"  style="background-image: url('{% static 'images/maquinas.jpg'%}')";>
     
   
-  >
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
           <p class="mb-3 h2 p-2">Login<p><br>
