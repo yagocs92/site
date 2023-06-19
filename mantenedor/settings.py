@@ -84,13 +84,11 @@ WSGI_APPLICATION = 'mantenedor.wsgi.application'
 import dj_database_url
 import os
 
-DATABASES = { 'default': dj_database_url.config() }
-
-DATABASES['default'] = dj_database_url.config(
+DATABASES = { 'default': dj_database_url.config( 
     default='postgres://gpjubvjkke:{1A11G22OKBU0DGS4$}@recogitate-server.postgres.database.azure.com/postgres?sslmode=require',
     conn_max_age=600,
-    conn_health_checks=True,
-)
+    conn_health_checks=True,) }
+
 
 
 
