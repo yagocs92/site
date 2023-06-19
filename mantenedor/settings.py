@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-1cv77t0t=-!s&x3grk(o)^t9p%+2hox3=*dts_96qy8p+l5%k^
 DEBUG = False
 
 ALLOWED_HOSTS = ['recogitate.azurewebsites.net', 'recogitate.com.br']
+CSRF_TRUSTED_ORIGINS = ['recogitate.azurewebsites.net', 'recogitate.com.br']
 
 
 # Application definition
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'gestor',
     'crispy_forms',
     'crispy_bootstrap5',
+    'corsheaders', 
 ]
 
 MIDDLEWARE = [
@@ -51,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'mantenedor.urls'
