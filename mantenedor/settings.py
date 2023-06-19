@@ -95,7 +95,7 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.config(
-            default='postgres://gpjubvjkke:{1Lithium23}@recogitate-server.postgres.database.azure.com/postgres?sslmode=require',
+            default='postgres://gpjubvjkke:1Lithium23@recogitate-server.postgres.database.azure.com/postgres?sslmode=require',
             conn_max_age=600,
             conn_health_checks=True,
         )

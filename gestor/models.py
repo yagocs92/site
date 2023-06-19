@@ -77,7 +77,7 @@ class Custo (models.Model):
     codigo = models.CharField(max_length=100)
     ni = models.CharField(max_length=100)
     item = models.CharField(max_length=100)  
-    qtd = models.IntegerField(max_length=100)
+    qtd = models.IntegerField()
     preco_unit = models.FloatField(max_length=100)
     
     def __str__(self):
