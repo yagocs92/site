@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1cv77t0t=-!s&x3grk(o)^t9p%+2hox3=*dts_96qy8p+l5%k^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['recogitate.azurewebsites.net', 'recogitate.com.br']
 CSRF_TRUSTED_ORIGINS = ['recogitate.azurewebsites.net', 'recogitate.com.br']
