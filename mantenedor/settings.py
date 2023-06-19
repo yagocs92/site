@@ -87,6 +87,9 @@ WSGI_APPLICATION = 'mantenedor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import dj_database_url
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -94,8 +97,7 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-import os
+
 
 DATABASE_URL = os.getenv('DATABASE_URL')
 if DATABASE_URL:
