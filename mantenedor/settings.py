@@ -85,7 +85,7 @@ import dj_database_url
 import os
 
 DATABASES = {
-   
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'recogitate-database',
         'USER': 'gpjubvjkke',
@@ -93,7 +93,7 @@ DATABASES = {
         'HOST': 'recogitate-server.postgres.database.azure.com',
         'PORT': '5432',
         'sslmode':'require'
-    
+    }
 }
 
 
