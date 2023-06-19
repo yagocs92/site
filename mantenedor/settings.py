@@ -81,16 +81,17 @@ WSGI_APPLICATION = 'mantenedor.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-import dj_database_url
+
 import os
+import dj_database_url
 
-DATABASES = { 'default': dj_database_url.config( 
-    default='postgres://gpjubvjkke:{1A11G22OKBU0DGS4$}@recogitate-server.postgres.database.azure.com/postgres?sslmode=require',
-    conn_max_age=600,
-    conn_health_checks=True,) }
-
-
-
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgres://gpjubvjkke:{1Lithium23}@recogitate-server.postgres.database.azure.com/postgres?sslmode=require',
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+}
 
 
 
