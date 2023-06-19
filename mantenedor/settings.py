@@ -82,20 +82,25 @@ WSGI_APPLICATION = 'mantenedor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-import os
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 import dj_database_url
+import os
 
-DATABASES['default'] = dj_database_url.config(
-    conn_max_age=600,
-    conn_health_checks=True,
-)
-
-DATABASES['default'] = dj_database_url.config(
-    default='postgres://gpjubvjkke:{1Lithium23}@recogitate-server.postgres.database.azure.com/postgres?sslmode=require',
-    conn_max_age=600,
-    conn_health_checks=True,
-)
+DATABASE_URL = os.getenv('DATABASE_URL')
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='postgres://gpjubvjkke:{1Lithium23}@recogitate-server.postgres.database.azure.com/postgres?sslmode=require',
+            conn_max_age=600,
+            conn_health_checks=True,
+        )
+    }
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
