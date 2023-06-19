@@ -83,14 +83,16 @@ WSGI_APPLICATION = 'mantenedor.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 import dj_database_url
 import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'recosuz'),
-        'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASS', '1Lithium23'),
-        'HOST': 'localhost',
+        'NAME': 'recogitate-database',
+        'USER': 'gpjubvjkke',
+        'PASSWORD': '1Lithium23',
+        'HOST': 'recogitate-server.postgres.database.azure.com',
         'PORT': '5432',
+        
     }
 }
 
