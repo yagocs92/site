@@ -89,8 +89,13 @@ WSGI_APPLICATION = 'mantenedor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'recogitate-database',
+        # 'NAME': os.path.join(BASE_DIR, 'mydb'),
+        'USER': 'gpjubvjkke',
+        'PASSWORD': '1Lithium23',
+        'HOST': 'recogitate-server.postgres.database.azure.com',
+        'PORT': '5432', # 8000 is default
     }
 }
 
