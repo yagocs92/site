@@ -86,7 +86,7 @@ import os
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'recogitate-database',
         'USER': 'gpjubvjkke',
         'PASSWORD': '1A11G22OKBU0DGS4$',
