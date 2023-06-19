@@ -1,0 +1,34 @@
+{% extends 'visualizapendencias.html' %}
+{% load crispy_forms_tags %}
+{% block pendencias %}
+
+
+<div class="container">
+    
+
+    <br>
+    <p>
+        <a class="btn btn-dark" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Cabeçote H215B</a>
+        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Cabeçote H225B</button>
+        <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Maquina Base</button>
+      </p>
+    
+    <div  class="row">
+        <div class="col">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item" src="https://online.fliphtml5.com/hkyvr/edjd/" style="height: 800px; width:600px"></iframe>
+            </div>
+        </div>
+        </div>
+        <div class="col">
+            <form method="post"> 
+            {% csrf_token %} 
+            {{form|crispy }} 
+            <input type="submit" class="btn btn-outline-dark" value="Save"> 
+            
+            </form>
+        </div>
+    </div> <br> <br>
+</div> 
+{% endblock %}

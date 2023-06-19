@@ -1,0 +1,1 @@
+web: gunicorn mantenedor.wsgi --log-file -

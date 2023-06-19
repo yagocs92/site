@@ -1,0 +1,56 @@
+{% extends 'visualizapendencias.html' %}
+
+{% block pendencias %}
+<style>
+    #alvo {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        width: 1200px;
+      }   
+</style>
+<div class="container">
+    <br>
+    <br>
+    <div  id="alvo" class="columns is-2">
+        
+        {% for pendencia in lista_pendencias_recentes %}
+    
+        <div class="columns is-2  ms-3">
+            
+            <div class="card ms-2" style="width: 19rem;">
+                    <div  class="card-text p-1 mt-2 text-white " style="font-size: 20px; font-weight: 400; background-color:  rgba(0, 0, 0, 0.7);">Pendencia Nº {{ pendencia.pk }}</div>
+
+                        <img src="{{ pendencia.thumb.url }}" class="card-img-top" style="height: 200px;"  alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ pendencia.list_maquina }}</h5>
+                            <p class="card-text">{{ pendencia.corpo }}</p>
+                        </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Tempo de manutenção: {{ pendencia.tempo_hora_homem }}</li>
+                            <li class="list-group-item">Numero de orçamento: {{ pendencia.num_orcamento }}</li>
+                            <li class="list-group-item">Data de Criação: {{ pendencia.data_criacao }}</li>
+                            </ul>
+                            
+                                <div class="card">
+                                    <footer class="card-footer">
+                                      <a href="{% url 'gestor:detalhependencia' pendencia.pk %}" class="card-footer-item">Tratar Pendencia</a>
+                                                                            
+                                    </footer>
+                            
+                        
+                    </div>
+            </div>
+        </div>
+    
+        <hr>{% endfor %}
+        <br> 
+    </div>
+    <br>
+</div>
+<br>
+
+    
+
+
+{%endblock%}

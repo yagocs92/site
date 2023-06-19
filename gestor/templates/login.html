@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<header class="masthead">
+  <!-- Intro settings -->
+  <style>
+    /* Default height for small devices */
+    #intro-example {
+      height: 1000px;
+    }
+
+    /* Height for devices larger than 992px */
+    @media (min-width: 992px) {
+      #intro-example {
+        height: 788px;
+      }
+    }
+  </style>
+
+  
+
+  <!-- Background image -->
+  <div
+  {
+    text-align: center;
+  }
+    id="intro-example"
+    class="p-5 text-center bg-image"
+    {%  load static %}
+    style="background-image: url('{% static 'images/maquinas.jpg'%} '); align="center";
+
+    
+  
+  >
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <p class="mb-3 h2 p-2">Login<p><br>
+          
+          <form method='post'>
+            {% csrf_token %}
+            <fildset>
+              <legend class="mb-4 h5">Preencha os dados para executar o login:</legend>
+              {{form|crispy }}
+            </fildeset><br>
+          <button
+            class="btn btn-outline-light  m-2"
+            href="{% url 'gestor:login' %}"
+            role="button"
+            rel="nofollow"
+            type="submit"
+            target="_blank">Login</button><br>
+          </form>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Background image -->
+</header>
+
+{% endblock %}

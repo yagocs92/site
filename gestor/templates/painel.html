@@ -1,0 +1,129 @@
+{% extends 'visualizapendencias.html' %}
+
+
+{% block  pendencias %}
+<header>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        
+        var data = google.visualization.arrayToDataTable([
+          ['Equipamento', 'Nº Pendencias'],
+          {% for dist in lista_pendmaq %}
+          ['{{dist.tag}}',     {{dist.qtd}}],
+          {% endfor %}
+        ]);
+
+        var options = {
+          title: 'Distribuição  Pendencias Por Maquinas'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+
+      //<!--Segundo Grafico-->
+
+      
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Letra', 'Total Pendencias',],
+        {% for dist in lista_pendmaq %}
+          ['{{dist.padrinho}}',     {{dist.qtd}}],
+        {% endfor %}
+        
+        
+      ]);
+
+      var options = {
+        title: 'Distribuição  Pendencias Por Letras',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Total Pendencias',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Letras'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+
+    //<!--terceiro Grafico-->
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawVisualization);
+
+    function drawVisualization() {
+      // Some raw data (not necessarily accurate)
+      var data = google.visualization.arrayToDataTable([
+        ['Pendencias', 'Valor', ],
+        {% for desembolso in lista_desembolso%}
+        ['{{desembolso.pend}}',  parseFloat({{desembolso.mult}})],
+        {%endfor%}
+        
+        
+        
+      ]);
+
+      var options = {
+        title : 'Desembolso Por Pendencias',
+        vAxis: {title: 'Valor R$'},
+        hAxis: {title: 'Pendencias'},
+        seriesType: 'bars',
+        series: {5: {type: 'line'}}
+      };
+
+      var chart = new google.visualization.ComboChart(document.getElementById('cha'));
+      chart.draw(data, options);
+    }
+
+    
+
+
+    </script>
+
+    
+
+    
+
+</header>
+      
+<div class="container  ">
+    <br>
+    <div class="notification is-primary" style="background-color: rgba(0, 0, 0, 0.8); ">
+        Estes são os resusltados para sua <strong>pesquisa</strong>.
+    </div>
+    
+    <div class="columns is-3" style="background-color: rgba(0, 0, 0, 0.8); ">
+
+      <div class="column ">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <div id="piechart" style="width: 450px; height: 250px;"></div>
+      </div>
+
+      <div class="column ">
+        <div id="chart_div" style="width: 450px; height: 250px;"></div>
+      </div>
+
+    </div>
+    
+    <div class="columns" style="background-color: rgba(0, 0, 0, 0.8); ">
+        <div class="column ms-2">
+            <div id="cha" style="width: 900px; height: 500px;"></div>
+        </div>
+    </div><br><br>
+    
+</div>
+  
+{%endblock%}

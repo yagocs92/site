@@ -1,0 +1,73 @@
+{% extends 'visualizapendencias.html' %}
+
+
+{% block  pendencias %}
+<br>
+<div class="container">
+    
+
+    <br>
+    <div class= 'col'>
+    <h1 class="title">Reimagine. Reinvente. Renove.</h1>
+    <h2 class="subtitle">Gestor de Processos de Manutenção Automotiva</h2>
+    </div>
+    <br>
+    
+        <form class="d-flex" role="search" name= 'q' method="get" action="{% url 'gestor:pesquisa'%}">
+            <input class="form-control me-2" type="search" name= 'q' placeholder="Procure por um equipametno..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit" >Buscar</button>
+        </form>
+    
+
+
+
+<hr>
+</br>
+<div class="row">
+
+<div class="clearfix">
+  {%  load static %}
+  <img src="{% static 'images/logo_geral.jpg'%}" class="col-md-6 float-md-end mb-3 ms-md-3" style="height: 400px;" alt="...">
+
+  <p class="has-text-justified"  style="font-weight: 400;">
+    Bem-vindo à Recogitate: Soluções Inteligentes para Gestão de Manutenção Automotiva!   </p> <br>
+
+  <p class="has-text-justified">
+    Nós, na Recogitate, entendemos a importância da gestão eficiente da manutenção automotiva para garantir a confiabilidade e o desempenho otimizado da sua frota de veículos. Com vasta experiência no setor, oferecemos soluções inteligentes e inovadoras que permitem que sua empresa alcance níveis excepcionais de eficiência operacional.    <br></p> <br>
+  <p class="has-text-justified">
+    Nosso foco principal está no controle de backlog e no controle de componentes, dois aspectos fundamentais da gestão de manutenção automotiva. O backlog, representado por tarefas de manutenção pendentes, pode se acumular rapidamente, resultando em atrasos, interrupções operacionais e custos adicionais. Com a nossa abordagem estruturada e ferramentas avançadas, ajudamos a sua empresa a gerenciar e reduzir o backlog, garantindo que a manutenção seja realizada de forma oportuna e eficaz.  </p><br>
+  <p class="has-text-justified">
+    Além disso, o controle de componentes é uma parte essencial da gestão da manutenção automotiva. Sabemos que peças e componentes desgastados ou em mau estado podem afetar negativamente o desempenho e a segurança dos veículos. Com nossas soluções especializadas, oferecemos um sistema abrangente de controle de componentes, permitindo que você acompanhe o status de cada item, realize manutenção preventiva e evite falhas inesperadas.  </p><br>
+  <p class="has-text-justified">
+    Na Recogitate, acreditamos no poder da tecnologia para impulsionar a excelência operacional. Nossas soluções são baseadas em plataformas avançadas e intuitivas, que oferecem recursos de rastreamento, programação, análise de dados e geração de relatórios personalizados. Dessa forma, você terá uma visão abrangente e em tempo real do estado da sua frota, permitindo que tome decisões informadas e estratégicas.  </p><br>
+  <p class="has-text-justified">
+    Nossa equipe altamente qualificada está pronta para ajudar sua empresa a otimizar a gestão da manutenção automotiva. Combinando conhecimento técnico, experiência prática e um compromisso inabalável com a satisfação do cliente, estamos prontos para ser seu parceiro confiável nessa jornada.  </p><br>
+    <p class="has-text-justified" >
+      Entre em contato conosco hoje mesmo e descubra como a Recogitate pode transformar sua gestão de manutenção automotiva, trazendo eficiência, economia e confiabilidade para sua frota de veículos. Juntos, alcançaremos novos patamares de sucesso!
+    </p>
+
+ 
+</div>
+          
+      <div class="container">
+          
+      </div>
+      <div class="container">
+          <br>
+          <hr>
+          <p class="has-text-justified" >
+          </p>
+          <br>
+      </div>
+
+
+
+</div>
+
+<br>
+</div>
+<br>
+
+
+
+{% endblock %}

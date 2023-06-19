@@ -1,0 +1,25 @@
+{% extends 'visualizapendencias.html' %}
+{% load crispy_forms_tags %}
+{% block pendencias %}
+
+<style>
+    #alvo {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        height: 700px;
+      }   
+</style>
+<div class="container">
+    
+
+    <br>
+    <div id="alvo" class="container">
+<form method="post"> 
+    {% csrf_token %} 
+    {{form|crispy }} 
+    <input type="submit" class="btn btn-outline-dark" value="Save"> 
+    
+</form></div> <br> <br>
+</div> 
+{% endblock %}

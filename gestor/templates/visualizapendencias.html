@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="container ">
+    <div class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+        <div class="column is-one-quarter ">
+            <aside class="menu">
+            <p class="menu-label">
+            Gestão de Backlogs
+            </p>
+            <ul class="menu-list">
+            <li><a href="{% url 'gestor:geral'%}">Visão Geral</a></li>
+           
+            </ul>
+            <p class="menu-label">
+            Administração
+            </p>
+            <ul class="menu-list">
+            
+            <li>
+                <a class="is-active" style="background-color: rgba(0, 0, 0, 0.6); ">Gerenciar Pendencias</a>
+                <ul>
+                <li><a href="{% url 'gestor:painel'%}">Painel</a></li>
+                <li><a href="{% url 'gestor:backlog'%}">Pendencias Recentes</a></li>
+                <li><a href="{% url 'gestor:atrasados'%}">Pendencias Antigas</a></li>
+                <li><a href="{% url 'gestor:vencidos'%}">Itens vencidos</a></li>
+                <li><a href="{% url 'gestor:criarpend'%}">Add Pendencias</a></li>
+                </ul>
+            </li>
+            </ul>
+            <p class="menu-label">
+            Materiais
+            </p>
+            <ul class="menu-list">
+            <li><a href="{% url 'gestor:addcusto'%}">Adicionar materiais</a></li>
+            </ul>
+            </aside>
+        </div>
+
+        <div class="columns">
+
+            
+
+            {% block pendencias %}
+            {% endblock %}
+
+        </div>
+    </div>
+
+</div>
+{%endblock%}

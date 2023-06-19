@@ -1,0 +1,146 @@
+{% extends 'visualizapendencias.html' %}
+
+
+{% block  pendencias %}
+<br>
+
+    <div class="container">
+      <br>
+      <div class='container row p-2 text-white' style='background-color: #007982; font-weight: 500;'>
+        <p class='h5'> Detalhes da Pendencia </p>             
+    </div>
+        <br>
+        <div class='text-center'>
+            <img src="{{ object.thumb.url }}" class="img-fluid rounded" style="height: 400px;" alt="...">
+        </div>
+        <br>
+        <div class='card'>
+            <h5 class="card-header border border-danger-subtle" style='font-weight: 500;'>{{ object.titulo }}</h5>
+            <div class="card-body">
+              <h5 class="card-title p-2 border-bottom border-info">Equipamento: {{object.list_maquina}}</h5>
+              <p class="card-text p-2 border-bottom border-info-subtle">{{object.corpo}}</p>
+              
+              <p class="card-text p-2 border-bottom border-info-subtle">Pendencia foi gerada em : {{object.data_criacao}}</p>
+              
+              
+              <p class="card-text p-2 border-bottom border-info-subtle">Tempo de manutenção : {{object.tempo_hora_homem}} horas</p>
+              
+              
+              <p class="card-text p-2 border-bottom border-info-subtle">Esta pendencia encontra-se : {{object.status}}</p>
+              
+              <hr>
+              <div class="card">
+                <footer class="card-footer">
+                  <a  onclick="NewTab()" class="btn btn-primary" type="button" 
+                   
+                  >Marcar pendencia como concluida</a>
+                  
+                
+                </footer>
+                <script>
+                  function NewTab() {
+                      window.open("{% url 'gestor:mudarstatus' object.pk %}",
+                              "", "width=500, height=300");
+                  }
+                </script>
+                
+                
+              </div>
+              
+                
+            </div>
+        </div>
+        
+        <div class='container'>
+            <br>
+            <p class='h4'> Tabela de materiais: </p>
+        </div>
+        <hr>
+        <div>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">NI: </th>
+                    <th scope="col">Material: </th>
+                    <th scope="col">Quantidade: </th>
+                    <th scope="col">Preço Final :</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for materiais in object.materiais.all %}
+                  <tr>
+                    <th scope="row">{{ materiais.ni}}</th>
+                    <td>{{ materiais.item}}</td>
+                    <td>{{ materiais.qtd}}</td>
+                    <td>R$ {{ materiais.preco_final}}</td> 
+                  </tr>
+                    {% endfor %}
+                </tbody>
+              </table> 
+              
+              <br>
+        </div>
+        <div class='container'>
+            <div class='container p-2 text-white' style='background-color: #007982; font-weight: 500;'>
+                <p class='h5'> Demais pendencias no equipamento: {{object.list_maquina}}</p>   
+                       
+            </div>  <br>
+            <br>
+
+            <br> 
+
+            <div class="columns is-2">
+            
+                {% for pend in pendencias_relacionadas %}  
+
+                <div class="columns is-2  ms-3">
+
+                    <div class="col">
+                    <div class="ms-2" style="width: 20rem;">
+                    <div  class="card-text p-2 text-white " style="font-size: 20px; font-weight: 400; background-color: #00a8b5;">Pendencia Nº {{ pend.pk }}</div>
+                
+                  <img src="{{ pend.thumb.url }}" class="card-img-top" style="height: 200px;" alt="...">
+                  <div class="card-body border border-dark-subtle">
+                    <h5 class="card-title">{{ pend.list_maquina }}</h5>
+                    <p class="card-text">{{ pend.corpo }}</p>
+                  </div>
+                  <ul class="list-group list-group-flush border border-dark-subtle">
+                    <li class="list-group-item">Tempo de manutenção: {{ pend.tempo_hora_homem }}</li>
+                    <li class="list-group-item">Numero de orçamento: {{ pend.num_orcamento }}</li>
+                    <li class="list-group-item">Data de Criação: {{ pend.data_criacao }}</li>
+                  </ul>
+                  <div class="card-body border border-dark-subtle">
+
+                    <footer class="card-footer border border-dark-subtle">
+                      <a href="{% url 'gestor:detalhependencia' pend.pk %}" class="card-footer-item">Tratar Pendencia</a>
+                      <a href="#" class="card-footer-item">Orçamento Nº {{ pend.num_orcamento }}</a>
+                      
+                      </footer>
+
+
+                      <div class="row">
+                        <div class="col">
+                         
+                        </div>
+                        <div class="col">
+                          
+                        </div>
+                
+                      </div>
+                  </div>
+                </div>
+                  </div>
+                  </div>
+                  <hr>  
+                {% endfor %}         
+            </div>
+
+        </div>
+
+        <br>
+    <br>
+
+    </div>
+
+{% endblock %}
+
