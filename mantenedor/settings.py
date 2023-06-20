@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['recogitate.azurewebsites.net']
 
-CSRF_TRUSTED_ORIGINS = ['https://recogitate.azurewebsites.net']
+
 
 
 
