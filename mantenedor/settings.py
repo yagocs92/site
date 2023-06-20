@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'corsheaders', 
+    'cloudinary',
+    'cloudinary_example.core',
 ]
 
 MIDDLEWARE = [
@@ -169,3 +171,10 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+CLOUDINARY = {
+    'cloud_name' : 'drdomhyt2',
+    'api_key' : '956951786545254',
+    'api_secret': 'rYwEZu2Zv9tpmjp0L6pNeRmeB58'
+}
