@@ -25,10 +25,9 @@ SECRET_KEY = 'django-insecure-1cv77t0t=-!s&x3grk(o)^t9p%+2hox3=*dts_96qy8p+l5%k^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['recogitate.azurewebsites.net']
+ALLOWED_HOSTS = ['recogitate.azurewebsites.net', 'recogitate.com.br']
 
-
-
+CSRF_TRUSTED_ORIGINS = ['https://*.recogitate.azurewebsites.net', 'https://*.recogitate.com.br']
 
 
 # Application definition
