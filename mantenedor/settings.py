@@ -173,8 +173,8 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-CLOUDINARY = {
-    'cloud_name' : 'drdomhyt2',
-    'api_key' : '956951786545254',
-    'api_secret': 'rYwEZu2Zv9tpmjp0L6pNeRmeB58'
-}
+CLOUDINARY = cloudinary.config( 
+  cloud_name = "drdomhyt2", 
+  api_key = "956951786545254", 
+  api_secret = "rYwEZu2Zv9tpmjp0L6pNeRmeB58" 
+)
